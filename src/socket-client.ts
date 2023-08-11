@@ -3,8 +3,9 @@ import { Manager, Socket } from 'socket.io-client';
 let socket: Socket;
 
 export const connectToServer = (token: string) => {
-
-    const manager = new Manager('https://test-excope-backend.innovacioncarvajal.com/socket.io/socket.io.js', {
+    let url = "http://localhost:8000"
+    // let url = "https://test-excope-backend.innovacioncarvajal.com"
+    const manager = new Manager(`${url}/socket.io/socket.io.js`, {
         extraHeaders: {
             auth: token
         }

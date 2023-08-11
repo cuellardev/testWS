@@ -1,10 +1,12 @@
 import { connectToServer } from './socket-client';
 import './style.css';
+let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMjg2Y2MzODEtYjJkMS00MjIyLWE2ZWEtNjU0MjgwNTUyYTI4IiwibmFtZSI6IkFBIEFETUlOSVNUUkFET1IiLCJjYXB0dXJlIjp0cnVlLCJtb2JpbGVBY2Nlc3MiOnRydWUsInJvbGUiOiJhZG1pbmlzdHJhZG9yIiwibGFzdEVudHJ5IjoiMjAyMy0wOC0xMFQxMDoyNDozOC44OTJaIn0sImlhdCI6MTY5MTc4MjQ0MywiZXhwIjoxNjkxODY4ODQzfQ.tR_XO_4bm66fJDgsU5WnHpJNb8UescZPAKkBmeWgies'
+let actividadID = '7661eba7-61f9-4696-8307-d6abb97cc580'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <h2>Websocket - Client</h2>
-    <input id="jwt-token" placeholder="Json Web Token" />
+    <input id="jwt-token" placeholder="Json Web Token" value="${token}" />
     <button id="btn-connect">Connect</button>
 
     <br/>
@@ -13,7 +15,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <ul id="clients-ul"></ul>
 
     <form id="message-form">
-      <input placeholder="Actividad ID" id="message-input" value="c8db4a5f-e5e6-4d90-bbdb-0ba2e30aec48" />
+      <input placeholder="Actividad ID" id="message-input" value="${actividadID}" />
     </form>
     <br/>
     <button id="btn-start">Start Task</button>
