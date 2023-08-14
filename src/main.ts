@@ -1,6 +1,6 @@
 import { connectToServer } from './socket-client';
 import './style.css';
-let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMjg2Y2MzODEtYjJkMS00MjIyLWE2ZWEtNjU0MjgwNTUyYTI4IiwibmFtZSI6IkFBIEFETUlOSVNUUkFET1IiLCJjYXB0dXJlIjp0cnVlLCJtb2JpbGVBY2Nlc3MiOnRydWUsInJvbGUiOiJhZG1pbmlzdHJhZG9yIiwibGFzdEVudHJ5IjoiMjAyMy0wOC0xMFQxMDoyNDozOC44OTJaIn0sImlhdCI6MTY5MTc4MjQ0MywiZXhwIjoxNjkxODY4ODQzfQ.tR_XO_4bm66fJDgsU5WnHpJNb8UescZPAKkBmeWgies'
+let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMjg2Y2MzODEtYjJkMS00MjIyLWE2ZWEtNjU0MjgwNTUyYTI4IiwibmFtZSI6IkFBIEFETUlOSVNUUkFET1IiLCJjYXB0dXJlIjp0cnVlLCJtb2JpbGVBY2Nlc3MiOnRydWUsInJvbGUiOiJhZG1pbmlzdHJhZG9yIiwibGFzdEVudHJ5IjoiMjAyMy0wOC0xMVQxOTozNDowMy4xNDJaIn0sImlhdCI6MTY5MjAyMDcwMiwiZXhwIjoxNjkyMTA3MTAyfQ.mEW47EwKl4l47tW6AzN5hVFlMC7K9pAJW3vBCfmgGRU'
 let actividadID = '7661eba7-61f9-4696-8307-d6abb97cc580'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -19,29 +19,67 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </form>
     <br/>
     <button id="btn-start">Start Task</button>
-
     <button id="btn-end">End Task</button>
-
-    <button id="btn-pause">Pause Task</button>
-
-    <button id="btn-resume">Resume Task</button>
+    <button id="btn-close">Close Task</button>
     <br/>
     <br/>
     <button id="btn-start-break">Start Break</button>
-
     <button id="btn-end-break">End Break</button>
-
-    <button id="btn-pause-break">Pause Break</button>
-
-    <button id="btn-resume-break">Resume Break</button>
     <br/>
     <button id="btn-resume-status">Status</button>
     <h3>Messages</h3>
-    <ul id="messages-ul"></ul>
+    <table>
+    <tr>
+    <th>Campo</th>
+    <th>Valor</th>
+    </tr>
+    <tr>
+    <td>typeRegister</td>
+    <td id="typeRegister"></td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td id="type"></td>
+  </tr>
+  <tr>
+    <td>process</td>
+    <td id="process"></td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td id="id"></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td id="name"></td>
+  </tr>
+  <tr>
+    <td>project</td>
+    <td id="project"></td>
+  </tr>
+  <tr>
+    <td>state</td>
+    <td id="state"></td>
+  </tr>
+  <tr>
+    <td>start</td>
+    <td id="start"></td>
+  </tr>
+  <tr>
+    <td>timer</td>
+    <td id="timer"></td>
+  </tr>
+  <tr>
+    <td>alert</td>
+    <td id="alert"></td>
+  </tr>
+  <tr>
+    <td>alertMessage</td>
+    <td id="alertMessage"></td>
+  </tr>
+</table>
 
-    
-
-
+    <p id="messages-ul"></p>
   </div>
 `
 

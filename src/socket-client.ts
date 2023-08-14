@@ -25,16 +25,23 @@ const addListeners = () => {
     const clientsUl = document.querySelector('#clients-ul')!;
     const messageForm = document.querySelector<HTMLFormElement>('#message-form')!;
     const messageInput = document.querySelector<HTMLInputElement>('#message-input')!;
-    const messagesUl = document.querySelector<HTMLUListElement>('#messages-ul')!;
+    const typeRegister = document.getElementById('typeRegister') as HTMLInputElement | null;
+    const type = document.getElementById('type') as HTMLInputElement | null;
+    const process = document.getElementById('process') as HTMLInputElement | null;
+    const id = document.getElementById('id') as HTMLInputElement | null;
+    const name = document.getElementById('name') as HTMLInputElement | null;
+    const project = document.getElementById('project') as HTMLInputElement | null;
+    const state = document.getElementById('state') as HTMLInputElement | null;
+    const start = document.getElementById('start') as HTMLInputElement | null;
+    const timer = document.getElementById('timer') as HTMLInputElement | null;
+    const alert = document.getElementById('alert') as HTMLInputElement | null;
+    const alertMessage = document.getElementById('alertMessage') as HTMLInputElement | null;
     const serverStatusLabel = document.querySelector('#server-status')!;
     const btnStart = document.querySelector<HTMLButtonElement>('#btn-start')!;
     const btnEnd = document.querySelector<HTMLButtonElement>('#btn-end')!;
-    const btnPause = document.querySelector<HTMLButtonElement>('#btn-pause')!;
-    const btnResume = document.querySelector<HTMLButtonElement>('#btn-resume')!;
+    const btnClose = document.querySelector<HTMLButtonElement>('#btn-close')!;
     const btnStartBreak = document.querySelector<HTMLButtonElement>('#btn-start-break')!;
     const btnEndBreak = document.querySelector<HTMLButtonElement>('#btn-end-break')!;
-    const btnPauseBreak = document.querySelector<HTMLButtonElement>('#btn-pause-break')!;
-    const btnResumeBreak = document.querySelector<HTMLButtonElement>('#btn-resume-break')!;
     const btnStatus = document.querySelector<HTMLButtonElement>('#btn-resume-status')!;
 
 
@@ -82,23 +89,15 @@ const addListeners = () => {
         });
 
     })
-
-    btnPause.addEventListener('click', () => {
-        socket.emit('register-activity-pause', {
+    btnClose.addEventListener('click', () => {
+        socket.emit('register-activity-close', {
             activityId: messageInput.value
         });
 
     })
-    btnResume.addEventListener('click', () => {
-        socket.emit('register-activity-resume', {
-            activityId: messageInput.value
-        });
-
-    })
-
     btnStartBreak.addEventListener('click', () => {
         socket.emit('register-break-start', {
-            activityId: "almuerzo"
+            break: "035a3eba-6621-4c40-a1cf-0fd516e17101"
         });
 
     })
@@ -110,36 +109,25 @@ const addListeners = () => {
 
     })
 
-    btnPauseBreak.addEventListener('click', () => {
-        socket.emit('register-break-pause', {
-            activityId: "almuerzo"
-        });
-
-    })
-    btnResumeBreak.addEventListener('click', () => {
-        socket.emit('register-break-resume', {
-            activityId: "almuerzo"
-        });
-
-    })
 
     btnStatus.addEventListener('click', () => {
         socket.emit('register-status', {});
 
     })
 
-    socket.on('register-activity-time', (payload: { timer: string, message: string }) => {
+    socket.on('register-activity-time', (payload) => {
         console.log(payload);
-        const newMessage = `
-            <li>
-                <strong>${payload.timer}</strong>
-            </li>
-        `;
-        const li = document.createElement('li');
-        li.innerHTML = newMessage;
-        messagesUl.append(li);
+        typeRegister != null ? typeRegister.innerHTML = payload.typeRegister : null
+        type != null ? type.innerHTML = payload.type : null
+        process != null ? process.innerHTML = payload.process : null
+        id != null ? id.innerHTML = payload.id : null
+        name != null ? name.innerHTML = payload.name : null
+        project != null ? project.innerHTML = payload.project : null
+        state != null ? state.innerHTML = payload.state : null
+        start != null ? start.innerHTML = payload.start : null
+        timer != null ? timer.innerHTML = payload.timer : null
+        alert != null ? alert.innerHTML = payload.alert : null
+        alertMessage != null ? alertMessage.innerHTML = payload.alertMessage : null
     })
-
-
 }
 
