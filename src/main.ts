@@ -1,7 +1,7 @@
 import { connectToServer } from './socket-client';
 import './style.css';
-let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMjg2Y2MzODEtYjJkMS00MjIyLWE2ZWEtNjU0MjgwNTUyYTI4IiwibmFtZSI6IkFBIEFETUlOSVNUUkFET1IiLCJjYXB0dXJlIjp0cnVlLCJtb2JpbGVBY2Nlc3MiOnRydWUsInJvbGUiOiJhZG1pbmlzdHJhZG9yIiwibGFzdEVudHJ5IjoiMjAyMy0wOC0xMVQxOTozNDowMy4xNDJaIn0sImlhdCI6MTY5MjAyMDcwMiwiZXhwIjoxNjkyMTA3MTAyfQ.mEW47EwKl4l47tW6AzN5hVFlMC7K9pAJW3vBCfmgGRU'
-let actividadID = '7661eba7-61f9-4696-8307-d6abb97cc580'
+let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMjg2Y2MzODEtYjJkMS00MjIyLWE2ZWEtNjU0MjgwNTUyYTI4IiwibmFtZSI6IkFBIEFETUlOSVNUUkFET1IiLCJjYXB0dXJlIjp0cnVlLCJtb2JpbGVBY2Nlc3MiOnRydWUsInJvbGUiOiJhZG1pbmlzdHJhZG9yIiwibGFzdEVudHJ5IjoiMjAyMy0wOC0xNVQyMTozMzoyMS4yMjhaIn0sImlhdCI6MTY5MjIzMTIwMSwiZXhwIjoxNjkyMzE3NjAxfQ.fL8y45Fo9EPpyzVS3OiyojwsTAwlwOKkkkQE23WGZTk'
+let actividadID = 'cf072225-d3a6-429e-8cb1-4656b542b0e6'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -69,6 +69,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <td>timer</td>
     <td id="timer"></td>
   </tr>
+  <tr>
+  <td>timerTotal</td>
+  <td id="timerTotal"></td>
+</tr>
   <tr>
     <td>alert</td>
     <td id="alert"></td>

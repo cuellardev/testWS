@@ -34,6 +34,7 @@ const addListeners = () => {
     const state = document.getElementById('state') as HTMLInputElement | null;
     const start = document.getElementById('start') as HTMLInputElement | null;
     const timer = document.getElementById('timer') as HTMLInputElement | null;
+    const timerTotal = document.getElementById('timerTotal') as HTMLInputElement | null;
     const alert = document.getElementById('alert') as HTMLInputElement | null;
     const alertMessage = document.getElementById('alertMessage') as HTMLInputElement | null;
     const serverStatusLabel = document.querySelector('#server-status')!;
@@ -97,7 +98,7 @@ const addListeners = () => {
     })
     btnStartBreak.addEventListener('click', () => {
         socket.emit('register-break-start', {
-            break: "035a3eba-6621-4c40-a1cf-0fd516e17101"
+            activityId: "035a3eba-6621-4c40-a1cf-0fd516e17101"
         });
 
     })
@@ -128,6 +129,7 @@ const addListeners = () => {
         timer != null ? timer.innerHTML = payload.timer : null
         alert != null ? alert.innerHTML = payload.alert : null
         alertMessage != null ? alertMessage.innerHTML = payload.alertMessage : null
+        timerTotal != null ? timerTotal.innerHTML = payload.timerTotal : null
     })
 }
 
