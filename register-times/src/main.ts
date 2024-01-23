@@ -1,8 +1,7 @@
 import { connectToServer } from './socket-client';
 import './style.css';
-let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMjg2Y2MzODEtYjJkMS00MjIyLWE2ZWEtNjU0MjgwNTUyYTI4IiwibmFtZSI6IkFBIEFETUlOSVNUUkFET1IiLCJjYXB0dXJlIjp0cnVlLCJtb2JpbGVBY2Nlc3MiOnRydWUsInJvbGUiOiJhZG1pbmlzdHJhZG9yIiwibGFzdEVudHJ5IjoiMjAyMy0wOC0xNVQyMTozMzoyMS4yMjhaIn0sImlhdCI6MTY5MjIzMTIwMSwiZXhwIjoxNjkyMzE3NjAxfQ.fL8y45Fo9EPpyzVS3OiyojwsTAwlwOKkkkQE23WGZTk'
-let actividadID = 'cf072225-d3a6-429e-8cb1-4656b542b0e6'
-
+let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNDM4M2UyNmUtOTk5Ny00ODA3LWJkZDEtMDE1ZWYwMzM2MzQ5IiwiaWRlbnRpZmljYXRpb24iOm51bGwsIm5hbWUiOiJBdXRvbWF0aW9uIEFueXdoZXJlIiwidXNlckRvbWFpbiI6ImctYXV0YW55IiwiZW1haWwiOiJjdHMuYWFAY2FydmFqYWwuY29tIiwiam9iVGl0bGUiOiJDdWVudGEgR2Vuw6lyaWNhIEF1dG9tYXRpemFjaW9uIiwiY291bnRyeSI6IkNvbG9tYmlhIiwiY2l0eSI6IkNhbGkiLCJidXNpbmVzcyI6bnVsbCwiZGF0ZUVudHJ5IjpudWxsLCJjYXB0dXJlIjpmYWxzZSwicmVzdHJpY3RpdmVDbG9zdXJlIjpmYWxzZSwibW9iaWxlQWNjZXNzIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyNC0wMS0xMlQyMDozNDo0MS4wNzVaIiwidXBkYXRlZEF0IjoiMjAyNC0wMS0yM1QwNDo1NzowNi4wNzZaIiwiZmlyc3RBY2Nlc3MiOiIyMDI0LTAxLTIzVDA3OjM2OjI4LjkzNy0wNTowMCIsImxhc3RBY2Nlc3MiOiIyMDI0LTAxLTIyVDE4OjU3OjA2LjAzMi0wNTowMCIsImlzQWN0aXZlIjp0cnVlLCJyb2xlIjoiYWRtaW5pc3RyYWRvciIsInR1cm4iOiJPcGVyYXRpdm9zIn0sImlhdCI6MTcwNjAxMzM4OCwiZXhwIjoxNzA2MDU2NTg4fQ.zRsREG5Zxjf8ELsJph_8Kmc-GXSE6Hux9mX7ooyit2Q'
+let actividadID = '9fbe277f-9518-4bbb-a037-78b4eb6c35a2'
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <h2>Websocket - Client</h2>
@@ -20,13 +19,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <br/>
     <button id="btn-start">Start Task</button>
     <button id="btn-end">End Task</button>
-    <button id="btn-close">Close Task</button>
     <br/>
     <br/>
     <button id="btn-start-break">Start Break</button>
     <button id="btn-end-break">End Break</button>
     <br/>
     <button id="btn-resume-status">Status</button>
+    <br/>
+    <button id="btn-information-status">Information Status</button>
     <h3>Messages</h3>
     <table>
     <tr>

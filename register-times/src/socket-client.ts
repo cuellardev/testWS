@@ -13,7 +13,7 @@ export const connectToServer = (token: string) => {
 
 
     socket?.removeAllListeners();
-    socket = manager.socket('/register');
+    socket = manager.socket('/register-times');
 
 
     addListeners();
@@ -40,7 +40,6 @@ const addListeners = () => {
     const serverStatusLabel = document.querySelector('#server-status')!;
     const btnStart = document.querySelector<HTMLButtonElement>('#btn-start')!;
     const btnEnd = document.querySelector<HTMLButtonElement>('#btn-end')!;
-    const btnClose = document.querySelector<HTMLButtonElement>('#btn-close')!;
     const btnStartBreak = document.querySelector<HTMLButtonElement>('#btn-start-break')!;
     const btnEndBreak = document.querySelector<HTMLButtonElement>('#btn-end-break')!;
     const btnStatus = document.querySelector<HTMLButtonElement>('#btn-resume-status')!;
@@ -71,7 +70,7 @@ const addListeners = () => {
         if (messageInput.value.trim().length <= 0) return;
 
         socket.emit('register-activity-start', {
-            activityId: messageInput.value
+            detailActivity: messageInput.value
         });
 
         messageInput.value = '';
@@ -79,33 +78,28 @@ const addListeners = () => {
 
     btnStart.addEventListener('click', () => {
         socket.emit('register-activity-start', {
-            activityId: messageInput.value
+            detailActivity: messageInput.value
         });
 
     })
 
     btnEnd.addEventListener('click', () => {
         socket.emit('register-activity-stop', {
-            activityId: messageInput.value
+            detailActivity: messageInput.value
         });
 
     })
-    btnClose.addEventListener('click', () => {
-        socket.emit('register-activity-close', {
-            activityId: messageInput.value
-        });
 
-    })
     btnStartBreak.addEventListener('click', () => {
         socket.emit('register-break-start', {
-            activityId: "035a3eba-6621-4c40-a1cf-0fd516e17101"
+            break: "fdbb34d5-89ab-4bcf-b457-00ffd2b9d105"
         });
 
     })
 
     btnEndBreak.addEventListener('click', () => {
         socket.emit('register-break-stop', {
-            activityId: "almuerzo"
+            break: "fdbb34d5-89ab-4bcf-b457-00ffd2b9d105"
         });
 
     })
@@ -113,7 +107,6 @@ const addListeners = () => {
 
     btnStatus.addEventListener('click', () => {
         socket.emit('register-status', {});
-
     })
 
     socket.on('register-activity-time', (payload) => {
