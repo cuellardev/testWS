@@ -69,7 +69,7 @@ const addListeners = () => {
         event.preventDefault();
         if (messageInput.value.trim().length <= 0) return;
 
-        socket.emit('register-activity-start', {
+        socket.emit('register-times-start', {
             detailActivity: messageInput.value
         });
 
@@ -77,28 +77,28 @@ const addListeners = () => {
     });
 
     btnStart.addEventListener('click', () => {
-        socket.emit('register-activity-start', {
+        socket.emit('register-times-start', {
             detailActivity: messageInput.value
         });
 
     })
 
     btnEnd.addEventListener('click', () => {
-        socket.emit('register-activity-stop', {
+        socket.emit('register-times-stop', {
             detailActivity: messageInput.value
         });
 
     })
 
     btnStartBreak.addEventListener('click', () => {
-        socket.emit('register-break-start', {
+        socket.emit('register-times-break-start', {
             break: "fdbb34d5-89ab-4bcf-b457-00ffd2b9d105"
         });
 
     })
 
     btnEndBreak.addEventListener('click', () => {
-        socket.emit('register-break-stop', {
+        socket.emit('register-times-break-stop', {
             break: "fdbb34d5-89ab-4bcf-b457-00ffd2b9d105"
         });
 
@@ -106,10 +106,10 @@ const addListeners = () => {
 
 
     btnStatus.addEventListener('click', () => {
-        socket.emit('register-status', {});
+        socket.emit('register-times-status', {});
     })
 
-    socket.on('register-activity-time', (payload) => {
+    socket.on('register-times-response', (payload) => {
         console.log(payload);
         typeRegister != null ? typeRegister.innerHTML = payload.typeRegister : null
         type != null ? type.innerHTML = payload.type : null

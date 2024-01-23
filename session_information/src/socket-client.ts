@@ -71,7 +71,7 @@ const addListeners = () => {
 
     })
 
-    socket.on('session-information', (payload) => {
+    socket.on('session-information-response', (payload) => {
         console.log(payload);
         user != null ? user.innerHTML = payload.user : null
         rol != null ? rol.innerHTML = payload.rol : null
