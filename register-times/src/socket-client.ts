@@ -70,7 +70,7 @@ const addListeners = () => {
         if (messageInput.value.trim().length <= 0) return;
 
         socket.emit('register-times-start', {
-            detailActivity: messageInput.value
+            detailActivityId: messageInput.value
         });
 
         messageInput.value = '';
@@ -78,28 +78,28 @@ const addListeners = () => {
 
     btnStart.addEventListener('click', () => {
         socket.emit('register-times-start', {
-            detailActivity: messageInput.value
+            detailActivityId: messageInput.value
         });
 
     })
 
     btnEnd.addEventListener('click', () => {
         socket.emit('register-times-stop', {
-            detailActivity: messageInput.value
+            detailActivityId: messageInput.value
         });
 
     })
 
     btnStartBreak.addEventListener('click', () => {
         socket.emit('register-times-break-start', {
-            break: "fdbb34d5-89ab-4bcf-b457-00ffd2b9d105"
+            breakName: "Almuerzo"
         });
 
     })
 
     btnEndBreak.addEventListener('click', () => {
         socket.emit('register-times-break-stop', {
-            break: "fdbb34d5-89ab-4bcf-b457-00ffd2b9d105"
+            breakName: "Almuerzo"
         });
 
     })

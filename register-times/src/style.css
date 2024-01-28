@@ -25,6 +25,7 @@ a:hover {
 }
 
 body {
+  background-color: white;
   margin: 0;
   display: flex;
   place-items: center;
@@ -74,6 +75,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: white;
 }
 button:hover {
   border-color: #000000;
