@@ -92,14 +92,14 @@ const addListeners = () => {
 
     btnStartBreak.addEventListener('click', () => {
         socket.emit('register-times-break-start', {
-            breakName: "Almuerzo"
+            breakName: "5409624e-e9bc-434b-85f4-7b78ddf82da6"
         });
 
     })
 
     btnEndBreak.addEventListener('click', () => {
         socket.emit('register-times-break-stop', {
-            breakName: "Almuerzo"
+            breakName: "5409624e-e9bc-434b-85f4-7b78ddf82da6"
         });
 
     })
