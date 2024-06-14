@@ -2,7 +2,8 @@ import { connectToServer } from './socket-client-register-times';
 import { connectToServer2 } from './socket-client-session-info';
 import './style.css';
 let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZjY3NWI5NjgtNjc2OS00Yzg5LWFlZGEtMGE1ODM4NTkzNTEwIiwiaWRlbnRpZmljYXRpb24iOm51bGwsIm5hbWUiOiJDdWVsbGFyIFBheiBCcmF5YW4gSm9zZSIsInVzZXJEb21haW4iOiJicnljdWVwYSIsImVtYWlsIjoiYnJheWFuLmN1ZWxsYXJAY2FydmFqYWwuY29tIiwiam9iVGl0bGUiOiJJbmdlbmllcm8gZGVzYXJyb2xsbyBleHBlcnQgY3RzIGMiLCJjb3VudHJ5IjoiQ29sb21iaWEiLCJjaXR5IjoiQ2FsaSIsImJ1c2luZXNzIjpudWxsLCJkYXRlRW50cnkiOm51bGwsImNhcHR1cmUiOnRydWUsInJlc3RyaWN0aXZlQ2xvc3VyZSI6dHJ1ZSwiY2xvc2VTZXNzaW9uRW5kRGF5Ijp0cnVlLCJtb2JpbGVBY2Nlc3MiOnRydWUsImNyZWF0ZWRBdCI6IjIwMjQtMDMtMThUMTE6MTA6MzAuNzg3WiIsInVwZGF0ZWRBdCI6IjIwMjQtMDYtMTRUMTU6MDk6NDAuNTM0WiIsImZpcnN0QWNjZXNzIjoiMjAyNC0wNi0xNFQxNDo1OTowMC4wMDBaIiwibGFzdEFjY2VzcyI6IjIwMjQtMDYtMTRUMTU6MDY6MDAuMDAwWiIsImlzQWN0aXZlIjp0cnVlLCJ0aW1lWm9uZSI6IkFtZXJpY2EvQm9nb3RhIiwicm9sZSI6ImFkbWluaXN0cmFkb3IiLCJ0dXJuIjoiMDg6MDAgYW0gYSAwNjowMCBwbSIsImxlYWRlciI6IkNhc3RpbGxvIE1lZGluYSBSYXVsIEFuZHJlcyJ9LCJpYXQiOjE3MTgzNzc4MjcsImV4cCI6MTcxODQyMTAyN30.IllNGyM-0HWqG2eMND0PPR6v-O9oXDedla2u2oeLIPk'
-let actividadID = '5409624e-e9bc-434b-85f4-7b78ddf82da6'
+// let token = ''
+let actividadID = '05fcef69-08bc-498e-95ee-bc91e69f5962'
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class="contenedor">
 
@@ -174,7 +175,7 @@ const btnConnect = document.querySelector<HTMLButtonElement>('#btn-register-sess
 
 btnConnect.addEventListener('click', () => {
 
-  if (jwtToken.value.trim().length <= 0) return alert('Enter a valid JWT');
+  // if (jwtToken.value.trim().length <= 0) return alert('Enter a valid JWT');
 
   connectToServer(jwtToken.value.trim());
 
@@ -185,7 +186,7 @@ const btnConnect2 = document.querySelector<HTMLButtonElement>('#btn-connect')!;
 
 btnConnect2.addEventListener('click', () => {
 
-  if (jwtToken.value.trim().length <= 0) return alert('Enter a valid JWT');
+  // if (jwtToken.value.trim().length <= 0) return alert('Enter a valid JWT');
 
   connectToServer2(jwtToken.value.trim());
 

@@ -51,7 +51,7 @@ const addListeners = () => {
 
     socket.on('clients-updated', (clients: string[]) => {
         let clientsHtml = '';
-        clients.forEach(clientId => {
+        clients?.forEach(clientId => {
             clientsHtml += `
                 <li>${clientId}</li>
             `
@@ -67,22 +67,22 @@ const addListeners = () => {
 
     btnClose.addEventListener('click', () => {
         console.log("ejecutado boton Close");
-        socket.emit('register-activity-stop');
+        socket.emit('close-session');
 
     })
 
     socket.on('session-information-response', (payload) => {
-        user != null ? user.innerHTML = payload.user : null
-        rol != null ? rol.innerHTML = payload.rol : null
-        firstAccess != null ? firstAccess.innerHTML = payload.firstAccess : null
-        lastAccess != null ? lastAccess.innerHTML = payload.lastAccess : null
-        turn != null ? turn.innerHTML = payload.turn : null
-        schedule != null ? schedule.innerHTML = payload.schedule : null
-        availableTime != null ? availableTime.innerHTML = payload.availableTime : null
-        start != null ? start.innerHTML = payload.start : null
-        end != null ? end.innerHTML = payload.end : null
-        alert != null ? alert.innerHTML = payload.alert : null
-        alertMessage != null ? alertMessage.innerHTML = payload.alertMessage : null
+        user != null ? user.innerHTML = payload?.user : null
+        rol != null ? rol.innerHTML = payload?.rol : null
+        firstAccess != null ? firstAccess.innerHTML = payload?.firstAccess : null
+        lastAccess != null ? lastAccess.innerHTML = payload?.lastAccess : null
+        turn != null ? turn.innerHTML = payload?.turn : null
+        schedule != null ? schedule.innerHTML = payload?.schedule : null
+        availableTime != null ? availableTime.innerHTML = payload?.availableTime : null
+        start != null ? start.innerHTML = payload?.start : null
+        end != null ? end.innerHTML = payload?.end : null
+        alert != null ? alert.innerHTML = payload?.alert : null
+        alertMessage != null ? alertMessage.innerHTML = payload?.alertMessage : null
         function convertirMilisegundosAHorasMinutosSegundos(milisegundos) {
             const segundosTotales = Math.floor(milisegundos / 1000);
             const horas = Math.floor(segundosTotales / 3600);
@@ -93,7 +93,7 @@ const addListeners = () => {
             const segundosFormateados = segundos < 10 ? `0${segundos}` : `${segundos}`;
             return `${horasFormateadas}:${minutosFormateados}:${segundosFormateados}`;
         }
-        const diferencia = convertirMilisegundosAHorasMinutosSegundos(payload.availableTime);
+        const diferencia = convertirMilisegundosAHorasMinutosSegundos(payload?.availableTime);
         diferencia != null ? availableTimeHour.innerHTML = diferencia : null
     })
 }

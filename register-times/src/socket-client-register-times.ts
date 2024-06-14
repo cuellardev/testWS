@@ -24,7 +24,7 @@ const addListeners = () => {
 
     const clientsUlRegisterTImes = document.querySelector('#register-times-clients-ul')!;
     const messageFormRegisterTImes = document.querySelector<HTMLFormElement>('#register-times-message-form')!;
-    const messageInputRegisterTImes = document.querySelector<HTMLInputElement>('#register-times-message-input')!;
+    const messageInputRegisterTImes = document.querySelector<HTMLInputElement>('#message-register-session-input')!;
     const typeRegisterRegisterTImes = document.getElementById('register-times-typeRegister') as HTMLInputElement | null;
     const typeRegisterTImes = document.getElementById('register-times-type') as HTMLInputElement | null;
     const processRegisterTImes = document.getElementById('register-times-process') as HTMLInputElement | null;
@@ -57,7 +57,7 @@ const addListeners = () => {
 
     socket.on('clients-updated', (clients: string[]) => {
         let clientsHtml = '';
-        clients.forEach(clientId => {
+        clients?.forEach(clientId => {
             clientsHtml += `
                 <li>${clientId}</li>
             `
@@ -77,6 +77,7 @@ const addListeners = () => {
     });
 
     btnStartRegisterTImes.addEventListener('click', () => {
+        console.log("se ejecuto estar");
         socket.emit('register-times-start', {
             detailActivityId: messageInputRegisterTImes.value
         });
@@ -110,18 +111,18 @@ const addListeners = () => {
     })
 
     socket.on('register-times-response', (payload) => {
-        typeRegisterRegisterTImes != null ? typeRegisterRegisterTImes.innerHTML = payload.typeRegister : null
-        typeRegisterTImes != null ? typeRegisterTImes.innerHTML = payload.type : null
-        processRegisterTImes != null ? processRegisterTImes.innerHTML = payload.process : null
-        idRegisterTImes != null ? idRegisterTImes.innerHTML = payload.id : null
-        nameRegisterTImes != null ? nameRegisterTImes.innerHTML = payload.name : null
-        projectRegisterTImes != null ? projectRegisterTImes.innerHTML = payload.project : null
-        stateRegisterTImes != null ? stateRegisterTImes.innerHTML = payload.state : null
-        startRegisterTImes != null ? startRegisterTImes.innerHTML = payload.start : null
-        timerRegisterTImes != null ? timerRegisterTImes.innerHTML = payload.timer : null
-        alertRegisterTImes != null ? alertRegisterTImes.innerHTML = payload.alert : null
-        alertMessageRegisterTImes != null ? alertMessageRegisterTImes.innerHTML = payload.alertMessage : null
-        timerTotalRegisterTImes != null ? timerTotalRegisterTImes.innerHTML = payload.timerTotal : null
+        typeRegisterRegisterTImes != null ? typeRegisterRegisterTImes.innerHTML = payload?.typeRegister : null
+        typeRegisterTImes != null ? typeRegisterTImes.innerHTML = payload?.type : null
+        processRegisterTImes != null ? processRegisterTImes.innerHTML = payload?.process : null
+        idRegisterTImes != null ? idRegisterTImes.innerHTML = payload?.id : null
+        nameRegisterTImes != null ? nameRegisterTImes.innerHTML = payload?.name : null
+        projectRegisterTImes != null ? projectRegisterTImes.innerHTML = payload?.project : null
+        stateRegisterTImes != null ? stateRegisterTImes.innerHTML = payload?.state : null
+        startRegisterTImes != null ? startRegisterTImes.innerHTML = payload?.start : null
+        timerRegisterTImes != null ? timerRegisterTImes.innerHTML = payload?.timer : null
+        alertRegisterTImes != null ? alertRegisterTImes.innerHTML = payload?.alert : null
+        alertMessageRegisterTImes != null ? alertMessageRegisterTImes.innerHTML = payload?.alertMessage : null
+        timerTotalRegisterTImes != null ? timerTotalRegisterTImes.innerHTML = payload?.timerTotal : null
     })
 }
 
